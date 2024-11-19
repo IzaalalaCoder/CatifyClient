@@ -1,0 +1,13 @@
+<div id="form-create">
+    <div id="quit" (click)="closeCategoryForm()">
+        <img src="assets/img/quit.png" alt="Logo permettant de quitter le formulaire">
+    </div>
+    <h1>Créer une nouvelle catégorie</h1>
+    <form [formGroup]="categoryForm" (ngSubmit)="submit()">
+        <div class="form-group">
+            <input id="name" placeholder="Nom de la catégorie" type="text" class="form-control" formControlName="name">
+        </div>
+        <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+</div>
+
