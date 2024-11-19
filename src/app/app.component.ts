@@ -3,15 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { CategoryService } from './services/category.service';
 import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, CategoryComponent],
+  imports: [RouterOutlet, CommonModule, CategoryListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  providers: [CategoryService]
+  styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   title = 'Catify';
@@ -26,7 +25,6 @@ export class AppComponent implements OnInit {
     console.log("hehe");
     this.categoryService.getCategories().subscribe((datas) => {
       this.categories = datas;
-      console.log(datas);
     });
   }
 }
