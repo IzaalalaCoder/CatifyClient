@@ -1,7 +1,5 @@
 <ul>
-  <li *ngFor="let c of categories">
-    {{c.name}}
-  </li>
+  <app-category *ngFor = "let c of categories" [cat]="c"></app-category>
 </ul>
 
 <router-outlet></router-outlet>

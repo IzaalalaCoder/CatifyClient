@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { CategoryService } from './services/category.service';
 import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CategoryComponent } from './components/category/category.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, CategoryComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [CategoryService]
