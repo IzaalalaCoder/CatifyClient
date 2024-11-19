@@ -1,0 +1,18 @@
+<div id="category">
+    <div id="header">
+        <div id="name">
+            <div id="image">
+            <a href=""><img alt="logo for remove category" src="assets/img/remove.png"></a>
+            <a href=""><img alt="logo for edit category" src="assets/img/edit.png"></a>
+            </div>
+            <h1>{{category.name}}</h1>
+        </div>
+        <div id="informations">
+            <p>{{category.dateOfCreation | date:'dd/MM/yyyy - HH:mm'}}</p>
+            <p>Elément racine : {{category.root ? 'Oui' : 'Non'}}</p>
+        </div>
+    </div>
+    <div id="sub_categories">
+        <div *ngFor="let c of category.children" class="cat">{{c.name}}</div>
+    </div>
+</div>
