@@ -1,0 +1,50 @@
+<div id="form-search">
+    <div id="quit" (click)="closeSearchCategoryForm()">
+        <img src="assets/img/quit.png" alt="Logo permettant de quitter le formulaire">
+    </div>
+    <h1>Réaliser une nouvelle recherche de catégorie</h1>
+    <form [formGroup]="categoryForm" (ngSubmit)="submit()">
+        <div class="form-group-date-container">
+            <div class="form-group">
+                <label for="pagination">Page : </label>
+                <input id="pagination" type="number" class="form-control" formControlName="pagination">
+            </div>
+            <div id="check">
+                <label for="root">Racine : </label>
+                <input type="checkbox" id="root" class="regular-checkbox" formControlName="root"/><label for="root"></label>
+            </div>
+        </div>
+        <div class="form-group-date-container">
+            <div class="form-group">
+                <label for="after">Après la date de : </label>
+                <input id="after" type="date" class="form-control" formControlName="after">
+            </div>
+            <div class="form-group">
+                <label for="before">Avant la date de : </label>
+                <input id="before" type="date" class="form-control" formControlName="before">
+            </div>
+        </div>
+        <div class="form-group-container">
+            <div class="form-group">
+                <label for="sort">Trié par : </label>
+                <select id="sort" formControlName="sort">
+                    <option value="">--Choisir une option--</option>
+                    <option value="name">Nom</option>
+                    <option value="dateofcreation">Date de création</option>
+                    <option value="numberchildren">Le nombre de catégorie enfants</option>
+                    <option value="id">Identifiant</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="order">Dans l'ordre : </label>
+                <select id="order" formControlName="order">
+                    <option value="">--Choisir une option--</option>
+                    <option value="asc">Croissant</option>
+                    <option value="desc">Décroissant</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Lancer la recherche</button>
+    </form>
+</div>
+
