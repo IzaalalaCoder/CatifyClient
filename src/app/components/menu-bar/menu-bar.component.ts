@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
 import { FormCreateCategoryComponent } from '../form-create-category/form-create-category.component';
 import { CommonModule } from '@angular/common';
+import { FormSearchCategoryComponent } from '../form-search-category/form-search-category.component';
 
 @Component({
   selector: 'app-menu-bar',
   standalone: true,
-  imports: [FormCreateCategoryComponent, CommonModule],
+  imports: [FormCreateCategoryComponent, FormSearchCategoryComponent, CommonModule],
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.css']
 })
 export class MenuBarComponent {
 
-  isOpen: boolean = false;
+  isCreateOpen: boolean = false;
+  isSearchOpen: boolean = false;
 
   toggleCategoryCreateForm() {
-    this.isOpen = !this.isOpen;
-    console.log(this.isOpen)
+    this.isCreateOpen = !this.isCreateOpen;
+  }
+
+  toggleCategorySearchForm() {
+    this.isSearchOpen = !this.isSearchOpen;
   }
 }

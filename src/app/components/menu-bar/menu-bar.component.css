@@ -34,3 +34,31 @@ nav {
     transform: scale(1.1);
   }
   
+  #search-cat {
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    border-radius: 40px;
+    width: 250px;
+    box-shadow: 3px 3px 10px -3px grey;
+    overflow: hidden;
+}
+
+button {
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 40px;
+    background-color: white;
+    width: inherit;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+button {
+    display: flex;
+}
+
+#search-cat:hover {
+    background-color: aquamarine;
+}
