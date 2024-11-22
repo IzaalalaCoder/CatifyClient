@@ -1,0 +1,57 @@
+<div *ngIf="editMode == 'parent'" id="form-update">
+  <div id="quit" (click)="closeCategoryForm()">
+      <img src="assets/img/quit.png" alt="Quitter le formulaire">
+  </div>
+  <h1>Mise à jour de {{category.name}}</h1>
+  <form [formGroup]="categoryParentForm" (ngSubmit)="submit(category.id)">
+      <div class="form-group">
+        <label for="parent">Catégorie parente</label>
+        <select id="parent" formControlName="parent">
+            <option value="">--Choisir une option--</option>
+            <ng-container *ngFor="let c of categories" >
+            <option *ngIf="c.id != category.id"
+                [value]="c.id">
+              {{c.name}}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Modifier le parent</button>
+  </form>
+</div>
+
+
+<div *ngIf="editMode == 'name'" id="form-update">
+  <div id="quit" (click)="closeCategoryForm()">
+      <img src="assets/img/quit.png" alt="Quitter le formulaire">
+  </div>
+  <h1>Mise à jour de {{category.name}}</h1>
+  <form [formGroup]="categoryNameForm" (ngSubmit)="submit(category.id)">
+      <div class="form-group">
+        <label>Nom de la catégorie</label>
+        <input formControlName="name" type="text">
+      </div>
+      <button type="submit" class="btn btn-primary">Modifier le nom</button>
+  </form>
+</div>
+
+<div *ngIf="editMode == 'childs'" id="form-update">
+  <div id="quit" (click)="closeCategoryForm()">
+      <img src="assets/img/quit.png" alt="Quitter le formulaire">
+  </div>
+  <h1>Mise à jour de {{category.name}}</h1>
+  <form [formGroup]="categoryChildsForm" (ngSubmit)="submit(category.id)">
+      <div class="form-group">
+        <label>Ajouter une nouvelle catégorie enfant</label>
+        <select formControlName="childs">
+            <option value="">--Choisir une option--</option>
+            <ng-container *ngFor="let c of validCategories()" >
+              <option [value]="c.id">
+              {{c.name}}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter un enfant</button>
+  </form>
+</div>
