@@ -2,17 +2,28 @@
     <div id="header">
         <div id="name">
             <div id="image">
-            <a href=""><img alt="logo for remove category" src="assets/img/remove.png"></a>
-            <a href=""><img alt="logo for edit category" src="assets/img/edit.png"></a>
+            <img (click)='toggleCategoryEditForm(category.id != null ? category.id : -1, "name")' src="assets/img/edit.png" alt="Modifier le nom de la catégorie">
+            <img (click)='toggleCategoryEditForm(category.id != null ? category.id : -1, "parent")' src="assets/img/link.png" alt="Lier la catégorie à un parent">
+            <img (click)='toggleCategoryEditForm(category.id != null ? category.id : -1, "childs")' alt="Ajouter une sous catégorie existante à la catégorie" src="assets/img/add_sub_category.png">
+            <img (click)='removeCategory(category.id != null ? category.id : -1)' alt="Supprimer la catégorie" src="assets/img/remove.png">
             </div>
             <h1>{{category.name}}</h1>
         </div>
         <div id="informations">
             <p>{{category.dateOfCreation | date:'dd/MM/yyyy - HH:mm'}}</p>
-            <p>Elément racine : {{category.root ? 'Oui' : 'Non'}}</p>
+            <!-- <p>Elément racine : {{category.root ? 'Oui' : 'Non'}}</p> -->
+            <p *ngIf="category.parentId != null">{{parentCategory.name}}</p>
+            <p *ngIf="category.parentId == null">Elément racine</p>
         </div>
     </div>
     <div id="sub_categories">
-        <div *ngFor="let c of category.children" class="cat">{{c.name}}</div>
+      <div *ngFor="let c of category.children" class="cat">
+        <p>{{c.name}}</p>
+        <button (click)="unlinkCategory(category.id == null ? -1 : category.id, c.id == null  ? -1 : c.id)" class="btn_remove">
+            <img src="assets/img/unlink.png" alt="Supprimer la sous catégorie">
+        </button>
+      </div>
     </div>
 </div>
+
+<app-form-edit-category *ngIf="isEditOpen" (closeForm)="toggleCategoryEditForm(category.id != null ? category.id : -1)" [category]="category" [editMode]="editMode"></app-form-edit-category>

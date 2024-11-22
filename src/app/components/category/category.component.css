@@ -14,11 +14,16 @@ img {
     width: 20px;
     height: 20px;
     margin-bottom: 0;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
-a {
-    margin: 5px;
+img:hover {
+  transform: scale(1.1);
 }
+
 
 #header {
     border-bottom: 2px solid grey;
@@ -29,7 +34,7 @@ a {
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-left: 2%;  
+    margin-left: 2%;
 }
 
 #informations {
@@ -46,17 +51,28 @@ a {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fit, 1fr);
     gap: 5px;
 }
 
 .cat {
     border: 2px solid black;
-    /* width: max-content; */
     padding: 1%;
     border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .cat:hover {
     background-color: grey;
+}
+
+.btn_remove {
+  background: none;
+  border: none;
+}
+
+.btn_remove img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
