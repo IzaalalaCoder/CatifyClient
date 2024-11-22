@@ -21,15 +21,12 @@ export class FormCreateCategoryComponent {
 
   categoryForm: FormGroup = new FormGroup({
     name: new FormControl(""),
-  }); 
+  });
 
   submit() {
     const category : Category = new Category();
-
     category.name = this.categoryForm.value.name;
-    console.log(this.categoryForm.value);
-
-    this.categoryService.createCategories(category);
+    this.categoryService.createCategories(category).subscribe();
   }
 
   closeCategoryForm() {

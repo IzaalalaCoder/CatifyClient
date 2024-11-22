@@ -9,31 +9,31 @@ nav {
     max-width: 1200px;
     margin: 0 auto 10px;
   }
-  
+
   nav li {
     display: flex;
     align-items: center;
   }
-  
+
   #logo_app {
     width: 200px;
     height: auto;
   }
-  
+
   #icon {
     width: 50px;
     height: 50px;
   }
 
-  #icon, #logo_app {
+  #icon {
     transition: transform 0.2s ease;
     cursor: pointer;
   }
-  
-  #icon:hover, #logo_app:hover {
+
+  #icon:hover {
     transform: scale(1.1);
   }
-  
+
   #search-cat {
     justify-content: center;
     display: flex;
