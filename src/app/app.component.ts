@@ -4,13 +4,12 @@ import { CategoryService } from './services/category.service';
 import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryListComponent } from './components/category-list/category-list.component';
-import { FormCreateCategoryComponent } from './components/form-create-category/form-create-category.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, CategoryListComponent, FormCreateCategoryComponent, MenuBarComponent],
+  imports: [RouterOutlet, CommonModule, CategoryListComponent, MenuBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -24,7 +23,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("hehe");
     this.categoryService.getCategories().subscribe((datas) => {
       this.categories = datas;
     });
