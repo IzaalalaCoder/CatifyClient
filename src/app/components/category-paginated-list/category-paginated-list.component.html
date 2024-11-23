@@ -1,0 +1,5 @@
+<app-category *ngFor="let c of categories" [cat]="c"></app-category>
+<div id="pagination">
+  <p (click)="goToPreviousPage()" *ngIf="currentPage + 1 > 1"><span><</span></p>
+  <p (click)="goToNextPage()" *ngIf="currentPage + 1 < totalPages"><span>></span></p>
+</div>
