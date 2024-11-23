@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormCreateCategoryComponent } from '../form-create-category/form-create-category.component';
 import { CommonModule } from '@angular/common';
 import { FormSearchCategoryComponent } from '../form-search-category/form-search-category.component';
@@ -11,9 +11,10 @@ import { FormSearchCategoryComponent } from '../form-search-category/form-search
   styleUrls: ['./menu-bar.component.css']
 })
 export class MenuBarComponent {
-
   isCreateOpen: boolean = false;
   isSearchOpen: boolean = false;
+
+  @Output() searchResponse = new EventEmitter<any>();
 
   toggleCategoryCreateForm() {
     this.isCreateOpen = !this.isCreateOpen;
@@ -21,5 +22,13 @@ export class MenuBarComponent {
 
   toggleCategorySearchForm() {
     this.isSearchOpen = !this.isSearchOpen;
+  }
+
+  gainedResponse(data: any) {
+    const result = {
+      response: data.searchResponse,
+      params: data.searchParams
+    };
+    this.searchResponse.emit(result);
   }
 }
