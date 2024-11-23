@@ -45,4 +45,8 @@ export class AppComponent implements OnInit {
 
     this.search = true;
   }
+
+  toggleDisplaySearch() {
+    this.search = !this.search;
+  }
 }

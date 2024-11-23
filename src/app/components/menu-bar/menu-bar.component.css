@@ -25,12 +25,12 @@ nav {
     height: 50px;
   }
 
-  #icon {
+  #icon, #logo_app {
     transition: transform 0.2s ease;
     cursor: pointer;
   }
 
-  #icon:hover {
+  #icon:hover, #logo_app:hover {
     transform: scale(1.1);
   }
 
