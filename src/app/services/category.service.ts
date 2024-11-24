@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -52,8 +50,7 @@ export class CategoryService {
   searchCategories(pagination : number, root : boolean, after : string, before : string, order : string, sort : string): Observable<any> {
     const request : string = "?root=" + (root ? "true" : "false") + "&page=" + pagination
       + (after == null ? '' : "&after=" + after) + (before == null ? '' : "&before=" + before)
-      + (sort == '' ? '' : "&sort=" + sort) + (order == '' ? '' : "&order=" + order) ;
-    console.log(request);
+      + (sort == '' ? '' : "&sort=" + sort) + (order == '' ? '' : "&order=" + order);
     return this.http.get<any[]>(this.API_URL_CATEGORIES + "/search" + request);
   }
 }
