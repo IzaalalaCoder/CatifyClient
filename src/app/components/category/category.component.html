@@ -1,4 +1,4 @@
-<div id="category">
+<div class="category">
     <div id="header">
         <div id="name">
             <div id="image">
@@ -16,14 +16,51 @@
             <p *ngIf="category.parentId == null">Elément racine</p>
         </div>
     </div>
-    <div id="sub_categories">
+    <div class="sub_categories">
       <div *ngFor="let c of category.children" class="cat">
         <p>{{c.name}}</p>
-        <button (click)="unlinkCategory(category.id == null ? -1 : category.id, c.id == null  ? -1 : c.id)" class="btn_remove">
+        <button (click)="unlinkCategory(category.id == null ? -1 : category.id, c.id == null  ? -1 : c.id)" class="btn">
             <img src="assets/img/unlink.png" alt="Supprimer la sous catégorie">
         </button>
+        <button (click)="isViewOpen ? unViewCategory() : getSpecificCategory(c.id == null ? -1 : c.id)" class="btn">
+          <img src="assets/img/view.png" alt="Visionner la sous catégorie">
+      </button>
       </div>
     </div>
 </div>
 
 <app-form-edit-category *ngIf="isEditOpen" (update)="updateCategory()" (closeForm)="toggleCategoryEditForm(category.id != null ? category.id : -1)" [category]="category" [editMode]="editMode"></app-form-edit-category>
+
+
+<div *ngIf="isViewOpen" class="category" id="view_sub_categories">
+
+  <div id="header">
+      <div id="head">
+        <div id="name">
+          <div id="image">
+            <img (click)='toggleCategoryEditForm(categorySpecific.id != null ? categorySpecific.id : -1, "name")' src="assets/img/edit.png" alt="Modifier le nom de la catégorie">
+            <img (click)='toggleCategoryEditForm(categorySpecific.id != null ? categorySpecific.id : -1, "parent")' src="assets/img/link.png" alt="Lier la catégorie à un parent">
+            <img (click)='toggleCategoryEditForm(categorySpecific.id != null ? categorySpecific.id : -1, "childs")' alt="Ajouter une sous catégorie existante à la catégorie" src="assets/img/add_sub_category.png">
+            <img (click)='removeCategory(category.id != null ? category.id : -1)' alt="Supprimer la catégorie" src="assets/img/remove.png">
+            </div>
+            <h1>{{categorySpecific.name}}</h1>
+        </div>
+        <div id="quit" (click)="unViewCategory()">
+          <img src="assets/img/quit.png" alt="Logo permettant de quitter l'affichage de la catégorie">
+        </div>
+      </div>
+      <div id="informations">
+          <p>{{categorySpecific.dateOfCreation | date:'dd/MM/yyyy - HH:mm'}}</p>
+          <p>{{category.name}}</p>
+      </div>
+
+  </div>
+  <div class="sub_categories">
+    <div *ngFor="let c of categorySpecific.children" class="cat">
+      <p>{{c.name}}</p>
+      <button (click)="unlinkCategory(categorySpecific.id == null ? -1 : categorySpecific.id, c.id == null  ? -1 : c.id)" class="btn">
+          <img src="assets/img/unlink.png" alt="Supprimer la sous catégorie">
+      </button>
+    </div>
+  </div>
+</div>

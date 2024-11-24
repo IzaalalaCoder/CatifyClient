@@ -20,8 +20,10 @@ export class CategoryComponent {
   @Output() update = new EventEmitter<void>();
 
   parentCategory: any = {};
+  categorySpecific: any = {};
   isEditOpen : boolean =  false;
   editMode : string = "";
+  isViewOpen : boolean = false;
 
   constructor(private categoryService : CategoryService) {
   }
@@ -42,7 +44,10 @@ export class CategoryComponent {
     if (id == -1) {
       return;
     }
-    return this.categoryService.getSpecificCategorie(id).subscribe();
+    this.categoryService.getSpecificCategorie(id).subscribe((datas) => {
+      this.categorySpecific = datas;
+      this.isViewOpen = true;
+    });
   }
 
   toggleCategoryEditForm(id : number, edit : string = "") {
@@ -63,5 +68,9 @@ export class CategoryComponent {
     this.categoryService.unlinkCategory(parentId, childId).subscribe(() => {
       this.update.emit();
     });
+  }
+
+  unViewCategory() {
+    this.isViewOpen = false;
   }
 }

@@ -5,6 +5,7 @@
 
 p {
   width: 40px;
+  cursor: pointer;
   border-radius: 50%;
   height: 40px;
   line-height: 40px;
@@ -17,26 +18,26 @@ p {
   overflow: hidden;
 }
 
-p span{
+p span {
   position: relative;
   z-index: 2;
 }
 
-p:after{
+p:after {
   position: absolute;
   content: "";
   top: 0;
   left: 0;
   width: 0;
   height: 100%;
-  background: #ff003b;
+  background: #e34b67f1;
   transition: all .35s;
 }
 
-p:hover{
+p:hover {
   color: #fff;
 }
 
-p:hover:after{
+p:hover:after {
   width: 100%;
 }
