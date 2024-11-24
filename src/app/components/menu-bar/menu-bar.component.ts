@@ -16,6 +16,7 @@ export class MenuBarComponent {
 
   @Output() searchResponse = new EventEmitter<any>();
   @Output() returnHome = new EventEmitter<any>();
+  @Output() updateList = new EventEmitter<any>();
 
   toggleCategoryCreateForm() {
     this.isCreateOpen = !this.isCreateOpen;
@@ -23,6 +24,10 @@ export class MenuBarComponent {
 
   toggleCategorySearchForm() {
     this.isSearchOpen = !this.isSearchOpen;
+  }
+
+  updateListCategories() {
+    this.updateList.emit()
   }
 
   gainedResponse(data: any) {

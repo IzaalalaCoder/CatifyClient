@@ -4,5 +4,5 @@
   <li><img id="icon" (click)="toggleCategoryCreateForm()" src="assets/img/add_category.png" alt="Ajouter une catégorie"></li>
 </nav>
 
-<app-form-create-category *ngIf="isCreateOpen" (closeForm)="toggleCategoryCreateForm()"></app-form-create-category>
+<app-form-create-category *ngIf="isCreateOpen" (added)="updateListCategories()" (closeForm)="toggleCategoryCreateForm()"></app-form-create-category>
 <app-form-search-category *ngIf="isSearchOpen" (searchResponse)="gainedResponse($event)" (closeForm)="toggleCategorySearchForm()"></app-form-search-category>
