@@ -5,7 +5,7 @@
     <h1>Créer une nouvelle catégorie</h1>
     <form [formGroup]="categoryForm" (ngSubmit)="submit()">
         <div class="form-group">
-            <input id="name" placeholder="Nom de la catégorie" type="text" class="form-control" formControlName="name">
+            <input id="name" autocomplete="off" placeholder="Nom de la catégorie" type="text" class="form-control" formControlName="name">
         </div>
         <button type="submit" class="btn btn-primary">Créer</button>
     </form>
