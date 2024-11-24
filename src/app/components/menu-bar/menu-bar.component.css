@@ -42,9 +42,15 @@ nav {
     width: 250px;
     box-shadow: 3px 3px 10px -3px grey;
     overflow: hidden;
+    background-color: #cc60712d;
 }
 
 button {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
     border: none;
     margin: 5px;
     padding: 5px;
@@ -60,5 +66,5 @@ button {
 }
 
 #search-cat:hover {
-    background-color: aquamarine;
+    background-color: #e34b67f1;
 }
