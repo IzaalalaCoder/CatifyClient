@@ -25,10 +25,15 @@ export class AppComponent implements OnInit {
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  loadCategories() {
     this.categoryService.getCategories().subscribe((datas) => {
       this.categories = datas;
     });
   }
+
   searchData: any = {
     response: this.searchResponse,
     params: this.searchParams
@@ -44,5 +49,13 @@ export class AppComponent implements OnInit {
     };
 
     this.search = true;
+  }
+
+  updateCategories() {
+    this.loadCategories();
+  }
+
+  toggleDisplaySearch() {
+    this.search = !this.search;
   }
 }

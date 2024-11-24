@@ -14,6 +14,7 @@ import { Category } from '../../models/category.model';
 export class FormCreateCategoryComponent {
 
   @Output() closeForm = new EventEmitter<void>();
+  @Output() added = new EventEmitter<void>();
 
   constructor(private categoryService : CategoryService) {
 
@@ -26,7 +27,9 @@ export class FormCreateCategoryComponent {
   submit() {
     const category : Category = new Category();
     category.name = this.categoryForm.value.name;
-    this.categoryService.createCategories(category).subscribe();
+    this.categoryService.createCategories(category).subscribe(() => {
+      this.added.emit();
+    });
   }
 
   closeCategoryForm() {

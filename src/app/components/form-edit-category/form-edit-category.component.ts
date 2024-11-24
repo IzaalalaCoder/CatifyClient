@@ -14,6 +14,7 @@ export class FormEditCategoryComponent implements OnInit {
   @Input() category: any = [];
   @Input() editMode: string = "";
   @Output() closeForm = new EventEmitter<void>();
+  @Output() update = new EventEmitter<void>();
 
   categories: any[] = [];
   childrens: any[] = [];
@@ -55,13 +56,22 @@ export class FormEditCategoryComponent implements OnInit {
   submit(id : number) {
     switch(this.editMode){
       case "name":
-        this.categoryService.updateNameCategory(id, this.categoryNameForm.value).subscribe();
+        this.categoryService.updateNameCategory(id, this.categoryNameForm.value).subscribe(() => {
+          this.update.emit();
+          this.closeForm.emit();
+        });
         break;
       case "parent":
-        this.categoryService.linkCategory(this.categoryParentForm.value.parent, id).subscribe();
+        this.categoryService.linkCategory(this.categoryParentForm.value.parent, id).subscribe(() => {
+          this.update.emit();
+          this.closeForm.emit();
+        });
         break;
       case "childs":
-        this.categoryService.linkCategory(id, this.categoryChildsForm.value.childs).subscribe();
+        this.categoryService.linkCategory(id, this.categoryChildsForm.value.childs).subscribe(() => {
+          this.update.emit();
+          this.closeForm.emit();
+        });
         break;
     }
   }

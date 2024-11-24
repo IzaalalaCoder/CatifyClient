@@ -26,4 +26,4 @@
     </div>
 </div>
 
-<app-form-edit-category *ngIf="isEditOpen" (closeForm)="toggleCategoryEditForm(category.id != null ? category.id : -1)" [category]="category" [editMode]="editMode"></app-form-edit-category>
+<app-form-edit-category *ngIf="isEditOpen" (update)="updateCategory()" (closeForm)="toggleCategoryEditForm(category.id != null ? category.id : -1)" [category]="category" [editMode]="editMode"></app-form-edit-category>

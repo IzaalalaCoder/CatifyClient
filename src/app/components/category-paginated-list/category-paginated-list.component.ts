@@ -16,10 +16,6 @@ export class CategoryPaginatedListComponent {
 
   constructor(private categoryService: CategoryService) {}
 
-  ngOnInit() {
-    console.log('Données reçues pour les catégories paginées:', this.searchData);  // Pour le debug
-  }
-
   get categories() {
     return this.searchData.response?.categories || [];
   }

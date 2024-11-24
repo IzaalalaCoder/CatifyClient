@@ -1,6 +1,6 @@
 import { CategoryService } from './../../services/category.service';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Category } from '../../models/category.model';
 import { FormEditCategoryComponent } from '../form-edit-category/form-edit-category.component';
 
@@ -17,12 +17,13 @@ export class CategoryComponent {
     alias: 'cat'
   }) category : Category = new Category();
 
+  @Output() update = new EventEmitter<void>();
+
   parentCategory: any = {};
   isEditOpen : boolean =  false;
-  editMode : string = ""
+  editMode : string = "";
 
   constructor(private categoryService : CategoryService) {
-
   }
 
   ngOnInit(): void {
@@ -33,12 +34,8 @@ export class CategoryComponent {
     }
   }
 
-  addSubCategory(id : number) {
-
-  }
-
-  removeCategory(id : number) {
-    this.categoryService.removeCategory(id).subscribe();
+  updateCategory() {
+    this.update.emit();
   }
 
   getSpecificCategory(id : number) {
@@ -56,12 +53,15 @@ export class CategoryComponent {
     this.editMode = this.isEditOpen ? edit : "";
   }
 
+  removeCategory(id : number) {
+    this.categoryService.removeCategory(id).subscribe(() => {
+      this.update.emit();
+    });
+  }
+
   unlinkCategory(parentId : number, childId : number) {
-    return this.categoryService.unlinkCategory(parentId, childId).subscribe();
+    this.categoryService.unlinkCategory(parentId, childId).subscribe(() => {
+      this.update.emit();
+    });
   }
-
-  linkCategory(parentId : number, childId : number) {
-    return this.categoryService.linkCategory(parentId, childId).subscribe();
-  }
-
 }
