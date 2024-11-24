@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CategoryComponent } from '../category/category.component';
 import { CategoryService } from '../../services/category.service';
 import { CommonModule } from '@angular/common';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-category-list',
@@ -15,5 +16,10 @@ export class CategoryListComponent {
   @Input({
     required: true,
     alias: 'cats'
-  }) categories : any[] = []; 
+  }) categories : any[] = [];
+  @Output() update = new EventEmitter<void>();
+
+  updateListCategory() {
+    this.update.emit();
+  }
 }
