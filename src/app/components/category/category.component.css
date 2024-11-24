@@ -1,8 +1,17 @@
-#category {
+.category {
     margin: 2% auto;
     border: 3px solid black;
     border-radius: 30px;
     width: 90%;
+}
+
+#head {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+}
+
+#view_sub_categories {
+  background-color: #332f2f28;
 }
 
 h1 {
@@ -23,7 +32,6 @@ img {
 img:hover {
   transform: scale(1.1);
 }
-
 
 #header {
     border-bottom: 2px solid grey;
@@ -46,7 +54,7 @@ img:hover {
     margin-top: 1px;
 }
 
-#sub_categories {
+.sub_categories {
     margin: 10px;
     text-align: center;
     display: grid;
@@ -66,12 +74,12 @@ img:hover {
     background-color: grey;
 }
 
-.btn_remove {
+.btn {
   background: none;
   border: none;
 }
 
-.btn_remove img {
+.btn img {
   width: 20px;
   height: 20px;
   vertical-align: middle;
