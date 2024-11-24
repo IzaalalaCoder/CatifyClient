@@ -1,195 +1,196 @@
 #form-search {
-    position: fixed;
-    width: 50%;
-    max-width: 500px;
-    height: auto;
-    background-color: white;
-    border: 2.5px solid #ccc;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 30px;
-    padding: 20px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  align-items: center;
+  position: fixed;
+  width: 70%;
+  max-width: 600px;
+  height: auto;
+  background-color: white;
+  border: 2.5px solid #04040474;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(3, 3, 3, 0.75);
 }
 
 h1 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 20px;
 }
 
 img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
 }
 
 #quit {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
 }
 
 #quit:hover img {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-control {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #04040474;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
 }
 
 .form-control:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  border-color: #e34b67f1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(227, 75, 103, 0.3);
 }
 
 .btn-primary {
-    width: 100%;
-    padding: 14px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+width: 100%;
+padding: 14px;
+background-color: #cc60712d;
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 div#check {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+  background-color: #e34b67f1;
+  transform: scale(1.025);
 }
 
 @media (max-width: 600px) {
-    #form-search {
-        width: 90%;
-        padding: 15px;
-    }
+  #form-search {
+      width: 90%;
+      padding: 15px;
+  }
 
-    h1 {
-        font-size: 20px;
-    }
+  h1 {
+      font-size: 20px;
+  }
 
-    .btn-primary {
-        padding: 12px;
-    }
+  .btn-primary {
+      padding: 12px;
+  }
 
-    .form-control {
-        padding: 10px;
-        font-size: 14px;
-    }
+  .form-control {
+      padding: 10px;
+      font-size: 14px;
+  }
 }
 
 .form-group-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #333;
-    box-sizing: border-box;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cc60712d;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 select:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  border-color: #e34b67f1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(227, 75, 103, 0.3);
 }
 
 .form-group-date-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 input[type="date"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #333;
-    box-sizing: border-box;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e34b67f1;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="date"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  border-color: #e34b67f1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(227, 75, 103, 0.3);
 }
 
 .regular-checkbox {
-    display: none;
+  display: none;
 }
 
 .regular-checkbox + label {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #007bff;
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-    border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cc60712d;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .regular-checkbox:checked + label {
-    background-color: #007bff;
+  background-color: #e34b67f1;
 }
 
 .regular-checkbox:checked + label::after {
-    content: '\2714';
-    color: white;
-    font-size: 14px;
-    position: absolute;
-    top: 1px;
-    left: 4px;
+  content: '\2714';
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 1px;
+  left: 4px;
 }
 
 input[type="number"] {
-    width: 80%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #cc60712d;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 #check label {
-    margin-top: 8px;
-    margin-right: 10px;
+  margin-top: 8px;
+  margin-right: 10px;
 }
