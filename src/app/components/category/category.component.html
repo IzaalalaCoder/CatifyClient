@@ -22,7 +22,7 @@
         <button (click)="unlinkCategory(category.id == null ? -1 : category.id, c.id == null  ? -1 : c.id)" class="btn">
             <img src="assets/img/unlink.png" alt="Supprimer la sous catégorie">
         </button>
-        <button (click)="isViewOpen ? unViewCategory() : getSpecificCategory(c.id == null ? -1 : c.id)" class="btn">
+        <button (click)="getSpecificCategory(c.id == null ? -1 : c.id)" class="btn">
           <img src="assets/img/view.png" alt="Visionner la sous catégorie">
       </button>
       </div>
