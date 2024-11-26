@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  catify-client:
+    build: .
+    ports:
+      - '4200:4200'
